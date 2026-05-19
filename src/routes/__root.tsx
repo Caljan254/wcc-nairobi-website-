@@ -72,14 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "World Commission Church — Nairobi, Kenya" },
+      { name: "description", content: "World Commission Church (WCC), Soweto, Nairobi. Led by Apostle Dr. Samuel Olweny. Raising giants for the Kingdom." },
+      { name: "author", content: "World Commission Church" },
+      { property: "og:title", content: "World Commission Church (WCC)" },
+      { property: "og:description", content: "Raising giants for the Kingdom — Nairobi, Kenya." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
