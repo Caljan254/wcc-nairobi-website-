@@ -21,6 +21,7 @@ const IMAGES = [
   "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1544427920-c49ccfb85579?auto=format&fit=crop&w=1200&q=80",
 ];
 
 function GalleryPage() {
@@ -32,7 +33,7 @@ function GalleryPage() {
         subtitle="Faces, worship and impact across the WCC family."
         image="https://images.unsplash.com/photo-1519750013411-a82854ce7b8b?auto=format&fit=crop&w=2000&q=80"
       />
-      <section className="mx-auto max-w-7xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-8 lg:px-8">
         <div className="columns-1 gap-5 sm:columns-2 lg:columns-3 [column-fill:_balance]">
           {IMAGES.map((src, i) => (
             <div key={i} className="mb-5 overflow-hidden rounded-2xl break-inside-avoid shadow-sm">

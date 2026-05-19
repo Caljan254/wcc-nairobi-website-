@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisionLinkSchoolRouteImport } from './routes/vision-link-school'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as MinistriesRouteImport } from './routes/ministries'
+import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -29,9 +31,19 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MinistriesRoute = MinistriesRouteImport.update({
   id: '/ministries',
   path: '/ministries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -72,7 +84,9 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
+  '/insights': typeof InsightsRoute
   '/ministries': typeof MinistriesRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision-link-school': typeof VisionLinkSchoolRoute
 }
@@ -83,7 +97,9 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
+  '/insights': typeof InsightsRoute
   '/ministries': typeof MinistriesRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision-link-school': typeof VisionLinkSchoolRoute
 }
@@ -95,7 +111,9 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
+  '/insights': typeof InsightsRoute
   '/ministries': typeof MinistriesRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision-link-school': typeof VisionLinkSchoolRoute
 }
@@ -108,7 +126,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/donate'
     | '/gallery'
+    | '/insights'
     | '/ministries'
+    | '/services'
     | '/sitemap.xml'
     | '/vision-link-school'
   fileRoutesByTo: FileRoutesByTo
@@ -119,7 +139,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/donate'
     | '/gallery'
+    | '/insights'
     | '/ministries'
+    | '/services'
     | '/sitemap.xml'
     | '/vision-link-school'
   id:
@@ -130,7 +152,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/donate'
     | '/gallery'
+    | '/insights'
     | '/ministries'
+    | '/services'
     | '/sitemap.xml'
     | '/vision-link-school'
   fileRoutesById: FileRoutesById
@@ -142,7 +166,9 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DonateRoute: typeof DonateRoute
   GalleryRoute: typeof GalleryRoute
+  InsightsRoute: typeof InsightsRoute
   MinistriesRoute: typeof MinistriesRoute
+  ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VisionLinkSchoolRoute: typeof VisionLinkSchoolRoute
 }
@@ -163,11 +189,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ministries': {
       id: '/ministries'
       path: '/ministries'
       fullPath: '/ministries'
       preLoaderRoute: typeof MinistriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -222,7 +262,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DonateRoute: DonateRoute,
   GalleryRoute: GalleryRoute,
+  InsightsRoute: InsightsRoute,
   MinistriesRoute: MinistriesRoute,
+  ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   VisionLinkSchoolRoute: VisionLinkSchoolRoute,
 }

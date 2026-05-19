@@ -22,7 +22,7 @@ function SchoolPage() {
         image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=2000&q=80"
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <img
             src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1400&q=80"
@@ -43,7 +43,7 @@ function SchoolPage() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 py-24">
+      <section className="bg-secondary/50 py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-8 md:grid-cols-3">
             {[
@@ -63,7 +63,7 @@ function SchoolPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
         <div className="overflow-hidden rounded-3xl bg-gradient-royal p-10 text-primary-foreground shadow-elegant lg:p-16">
           <div className="grid gap-10 lg:grid-cols-[2fr_1fr] lg:items-center">
             <div>

@@ -54,7 +54,7 @@ function AboutPage() {
         image="https://images.unsplash.com/photo-1519750013411-a82854ce7b8b?auto=format&fit=crop&w=2000&q=80"
       />
 
-      <section className="mx-auto max-w-4xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-8 lg:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Founder's Story</p>
         <h2 className="mt-3 font-display text-4xl text-primary sm:text-5xl">
           Apostle Dr. Samuel Olweny
@@ -63,30 +63,30 @@ function AboutPage() {
           <p>
             Apostle Dr. Samuel Olweny began with nothing but a whisper from heaven. Raised in the
             humble streets of Soweto, Nairobi, he carried a hunger for God that the world could not
-            satisfy. In a season of surrender, he heard the unmistakable calling of the Lord — to
+            satisfy. In a season of surrender, he heard the unmistakable calling of the Lord to
             gather a people, to build a sanctuary, and to raise giants for the Kingdom.
           </p>
           <p>
             What started as a small fellowship of believers has grown, by the grace of God, into
-            <strong className="text-primary"> World Commission Church</strong> — a thriving family
+            <strong className="text-primary"> World Commission Church</strong>, a thriving family
             of worshippers reaching Nairobi, Western and Southern Kenya, and the nations beyond.
           </p>
           <p>
             His passion for the next generation birthed <strong className="text-primary">Vision
-            Link School</strong>, where thousands of children — many from the most overlooked
-            corners of Soweto and Kayole — have received both right faith and a quality
+            Link School</strong>, where thousands of children, many from the most overlooked
+            corners of Soweto and Kayole, have received both right faith and a quality
             education. Today, doctors, teachers and ministers walk the streets of Kenya as fruit
             of one man's obedience.
           </p>
           <p>
             Alongside his wife <strong className="text-primary">Pamela Olweny</strong>, the
-            Apostle continues to disciple a generation that will not bow — a generation marked by
+            Apostle continues to disciple a generation that will not bow, a generation marked by
             holiness, purpose and the unstoppable commission of Christ.
           </p>
         </div>
       </section>
 
-      <section className="bg-secondary/50 py-24">
+      <section className="bg-secondary/50 py-8">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Leadership</p>
@@ -109,12 +109,12 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-8 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3">
           {[
             ["Our Vision", "To raise a generation of Kingdom giants who transform Kenya and the nations."],
             ["Our Mission", "Preach Christ, disciple families, and educate children in faith and excellence."],
-            ["Our Values", "Holiness · Family · Excellence · Compassion · The fear of the Lord."],
+            ["Our Values", "Holiness, Family, Excellence, Compassion, The fear of the Lord."],
           ].map(([t, d]) => (
             <div key={t} className="rounded-2xl border border-border bg-card p-8 shadow-sm">
               <h3 className="font-display text-2xl text-primary">{t}</h3>

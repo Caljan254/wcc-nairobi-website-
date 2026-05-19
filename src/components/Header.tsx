@@ -7,6 +7,8 @@ const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/ministries", label: "Ministries" },
+  { to: "/services", label: "Services" },
+  { to: "/insights", label: "Insights" },
   { to: "/vision-link-school", label: "Vision Link School" },
   { to: "/conferences", label: "Conferences" },
   { to: "/gallery", label: "Gallery" },
@@ -28,7 +30,7 @@ export function Header() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
       scrolled ? "bg-background/95 backdrop-blur shadow-sm border-b border-border" : "bg-background/80 backdrop-blur-sm"
     }`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
+      <div className="flex w-full items-center justify-between px-4 py-3 lg:px-8">
         <Link to="/" className="shrink-0">
           <Logo />
         </Link>
@@ -66,7 +68,7 @@ export function Header() {
 
       {open && (
         <div className="border-t border-border bg-background xl:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
+          <nav className="flex w-full flex-col gap-1 px-4 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.to}

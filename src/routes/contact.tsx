@@ -25,7 +25,7 @@ function ContactPage() {
         image="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=2000&q=80"
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Reach Us</p>

@@ -31,8 +31,16 @@ function CopyBtn({ value }: { value: string }) {
 function DonatePage() {
   const [method, setMethod] = useState<"mpesa" | "bank" | "card">("mpesa");
   const [purpose, setPurpose] = useState("Church Construction");
+  const [currency, setCurrency] = useState<"KES" | "USD" | "EUR">("KES");
   const [amount, setAmount] = useState<number | "">(1000);
   const [submitted, setSubmitted] = useState(false);
+
+  // Automatically switch currency based on method if desired, or let user switch
+  const handleMethodChange = (m: "mpesa" | "bank" | "card") => {
+    setMethod(m);
+    if (m === "mpesa") setCurrency("KES");
+    if (m === "card") setCurrency("USD");
+  };
 
   return (
     <SiteShell>
@@ -43,7 +51,7 @@ function DonatePage() {
         image="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2000&q=80"
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-6xl px-4 py-12 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           {/* Sidebar */}
           <aside className="space-y-4">
@@ -58,7 +66,7 @@ function DonatePage() {
               return (
                 <button
                   key={m.id}
-                  onClick={() => setMethod(m.id as typeof method)}
+                  onClick={() => handleMethodChange(m.id as typeof method)}
                   className={`flex w-full items-center gap-4 rounded-2xl border p-5 text-left transition ${
                     active ? "border-accent bg-gradient-royal text-primary-foreground shadow-elegant" : "border-border bg-card hover:border-accent"
                   }`}
@@ -95,7 +103,21 @@ function DonatePage() {
               </div>
 
               <div className="mt-8">
-                <label className="text-xs font-semibold uppercase tracking-widest text-accent">Amount (KES)</label>
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <label className="text-xs font-semibold uppercase tracking-widest text-accent">Amount</label>
+                  <div className="flex items-center gap-2 rounded-lg bg-secondary p-1">
+                    {["KES", "USD", "EUR"].map((c) => (
+                      <button
+                        key={c} type="button" onClick={() => setCurrency(c as any)}
+                        className={`rounded-md px-3 py-1 text-xs font-semibold transition ${
+                          currency === c ? "bg-background text-primary shadow-sm" : "text-muted-foreground hover:text-primary"
+                        }`}
+                      >
+                        {c}
+                      </button>
+                    ))}
+                  </div>
+                </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {AMOUNTS.map((a) => (
                     <button type="button" key={a} onClick={() => setAmount(a)}
@@ -117,7 +139,7 @@ function DonatePage() {
               <div className="mt-8 rounded-2xl bg-secondary/60 p-6">
                 {method === "mpesa" && (
                   <div className="space-y-3">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-accent">M-Pesa · Buy Goods</p>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-accent">M-Pesa Buy Goods</p>
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div><p className="text-xs text-muted-foreground">Till Number</p><p className="font-display text-3xl text-primary">0725494561</p></div>
                       <CopyBtn value="0725494561" />
@@ -138,7 +160,7 @@ function DonatePage() {
                     ].map((b) => (
                       <div key={b.bank} className="rounded-xl bg-card p-4">
                         <p className="font-display text-lg text-primary">{b.bank}</p>
-                        <p className="text-xs text-muted-foreground">A/c Name: World Commission Church · {b.branch}</p>
+                        <p className="text-xs text-muted-foreground">A/c Name: World Commission Church, {b.branch}</p>
                         <div className="mt-2 flex items-center justify-between">
                           <p className="font-mono text-sm">{b.acc}</p>
                           <CopyBtn value={b.acc} />
@@ -149,7 +171,7 @@ function DonatePage() {
                 )}
                 {method === "card" && (
                   <div className="space-y-3">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-accent">Card · Stripe / PayPal</p>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-accent">Card / PayPal</p>
                     <p className="text-sm text-muted-foreground">
                       Secure card processing via Stripe and PayPal will appear here. (Integration placeholder.)
                     </p>
@@ -167,11 +189,11 @@ function DonatePage() {
               <button type="submit"
                       className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-royal px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition hover:scale-[1.02]">
                 <Heart className="h-4 w-4 text-gold" />
-                {submitted ? "Thank you for your gift — God richly bless you!" : `Confirm Gift · ${purpose}`}
+                {submitted ? "Thank you for your gift, God richly bless you!" : `Confirm Gift ${currency} ${amount || 0}`}
               </button>
 
               <p className="mt-4 text-center text-xs text-muted-foreground">
-                "Each of you should give what you have decided in your heart to give." — 2 Corinthians 9:7
+                "Each of you should give what you have decided in your heart to give." 2 Corinthians 9:7
               </p>
             </form>
           </div>

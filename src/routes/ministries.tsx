@@ -30,7 +30,7 @@ function MinistriesPage() {
         subtitle="Six altars where gifts meet calling and people meet Jesus."
         image="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=2000&q=80"
       />
-      <section className="mx-auto max-w-7xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {MINISTRIES.map(({ icon: Icon, title, text }) => (
             <article key={title} className="group rounded-2xl border border-border bg-card p-8 transition hover:-translate-y-1 hover:border-accent hover:shadow-elegant">

@@ -39,7 +39,7 @@ function ConferencesPage() {
         image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2000&q=80"
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Annual Conferences</p>
         <h2 className="mt-3 font-display text-4xl text-primary sm:text-5xl">Two seasons. One movement.</h2>
 
@@ -64,7 +64,7 @@ function ConferencesPage() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 py-24">
+      <section className="bg-secondary/50 py-12">
         <div className="mx-auto max-w-4xl px-4 text-center lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Upcoming Events</p>
           <h2 className="mt-3 font-display text-4xl text-primary sm:text-5xl">More gatherings coming soon</h2>
