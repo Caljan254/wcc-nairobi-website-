@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisionLinkSchoolRouteImport } from './routes/vision-link-school'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as MinistriesRouteImport } from './routes/ministries'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as DonateRouteImport } from './routes/donate'
@@ -21,6 +22,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const VisionLinkSchoolRoute = VisionLinkSchoolRouteImport.update({
   id: '/vision-link-school',
   path: '/vision-link-school',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MinistriesRoute = MinistriesRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
   '/ministries': typeof MinistriesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision-link-school': typeof VisionLinkSchoolRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
   '/ministries': typeof MinistriesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision-link-school': typeof VisionLinkSchoolRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
   '/ministries': typeof MinistriesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/vision-link-school': typeof VisionLinkSchoolRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/gallery'
     | '/ministries'
+    | '/sitemap.xml'
     | '/vision-link-school'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/gallery'
     | '/ministries'
+    | '/sitemap.xml'
     | '/vision-link-school'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/gallery'
     | '/ministries'
+    | '/sitemap.xml'
     | '/vision-link-school'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   DonateRoute: typeof DonateRoute
   GalleryRoute: typeof GalleryRoute
   MinistriesRoute: typeof MinistriesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VisionLinkSchoolRoute: typeof VisionLinkSchoolRoute
 }
 
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/vision-link-school'
       fullPath: '/vision-link-school'
       preLoaderRoute: typeof VisionLinkSchoolRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ministries': {
@@ -203,8 +223,19 @@ const rootRouteChildren: RootRouteChildren = {
   DonateRoute: DonateRoute,
   GalleryRoute: GalleryRoute,
   MinistriesRoute: MinistriesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   VisionLinkSchoolRoute: VisionLinkSchoolRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
